@@ -7,12 +7,67 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtContraseña: UITextField!
+    
+    
+    @IBAction func btnIngresar(_ sender: Any) {
+        
+        /*
+        Auth.auth().signIn(withEmail: txtEmail.text!, password: txtContraseña.text!) { (user, error) in
+            print("Intentando iniciar sesion")
+            if error != nil {
+                print("Se presento el siguente error: \(error)")
+                
+           
+                let alerta = UIAlertController(title: "No se encontro el usuario", message: "\(error)", preferredStyle: .alert)
+                let btnOk = UIAlertAction(title: "Ok", style: .default, handler: {(UIAlertAction) in
+                 //   self.performSegue(withIdentifier: "crearUsuarioSegue", sender: nil)
+                })
+                
+                
+                alerta.addAction(btnOk)
+                self.present(alerta, animated: true, completion: nil)
+                
+            }else{
+                
+          
+                
+                
+                print("Inicio de sesion exitoso")
+                self.performSegue(withIdentifier: "pedidosSegue", sender: nil)
+            }
+        }
+ */
+         self.performSegue(withIdentifier: "pedidosSegue", sender: nil)
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        
+        if segue.identifier == "pedidosSegue" {
+       
+            let tabCtrl: UITabBarController = segue.destination as! UITabBarController
+            let destinationVC = tabCtrl.viewControllers![0] as! PendientesViewController
+    
+            
+            
+        }
+        
+        
     }
 
 
